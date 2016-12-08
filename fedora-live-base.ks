@@ -60,6 +60,10 @@ syslinux
 
 # anaconda needs the locales available to run for different locales
 glibc-all-langpacks
+
+# F25 bug #1360781
+-libcrypt
+libcrypt-nss
 %end
 
 %post
