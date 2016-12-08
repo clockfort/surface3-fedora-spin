@@ -67,6 +67,13 @@ fi
 chown -R liveuser:liveuser /home/liveuser/
 restorecon -R /home/liveuser/
 
+# for some reason lid suspend is horribly broken / always on
+echo "" >> /etc/systemd/logind.conf
+echo "HandleSuspendKey=ignore" >> /etc/systemd/logind.conf
+echo "HandleHibernateKey=ignore" >> /etc/systemd/logind.conf
+echo "HandleLidSwitch=ignore" >> /etc/systemd/logind.conf
+echo "HandleLidSwitchDocked=ignore" >> /etc/systemd/logind.conf
+
 EOF
 
 %end
